@@ -1,0 +1,46 @@
+@use "../variables/space";
+
+.banner {
+    background-image: linear-gradient(rgba(89, 44, 212, 0.5), rgba(114, 119, 26, 0.5)), url("../../assets/home_bg.jpg");
+    height: 70vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    padding-right: 3em;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 10em;
+}
+
+.banner__body {
+}
+
+.reason {
+    text-align: center;
+}
+
+.home__grid__container {
+    text-align: center;
+    margin: 0 !important;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    bottom: -20%;
+}
+
+.home__collection {
+    text-align: center;
+    margin: space.$page--margin-x;
+}
+
+.home__collection__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    & > div {
+        border-radius: 1em;
+    }
+}

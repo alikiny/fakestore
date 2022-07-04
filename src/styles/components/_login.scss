@@ -1,0 +1,29 @@
+@use "../variables/colors";
+
+.login {
+    display: inline !important;
+}
+
+.google-login {
+    display: block !important;
+    background-color: colors.$bg-primary !important;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20em;
+    border-radius: 2em;
+    padding: 2em;
+    color: colors.$light-text !important;
+    & > button {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none;
+        color: colors.$light-text !important;
+        & > div {
+            background-color: transparent !important;
+            padding-right: 0 !important;
+            color: colors.$light-text !important;
+        }
+    }
+}

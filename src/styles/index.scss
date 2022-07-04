@@ -1,0 +1,82 @@
+@use "./components/link";
+@use "./components/button";
+@use "./components/footer";
+@use "./components/navbar";
+@use "./components/login";
+@use "./components/icons";
+
+@use "./pages/homePage";
+@use "./pages/userPage";
+@use "./pages/products";
+@use "./pages/single-product";
+
+@use "./variables/fonts";
+@use "./variables/space";
+
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Stoke&display=swap");
+
+body,
+html {
+  height: 100%;
+  margin: 0 !important;
+  font-family: fonts.$font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: fonts.$text-size;
+}
+
+code {
+  font-family: fonts.$font-family;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: fonts.$font-heading;
+}
+
+h1,
+h2 {
+  margin: 3em;
+}
+
+h5 {
+  margin: 0;
+}
+
+h6 {
+  margin: 0;
+  line-height: 0;
+}
+
+h4 {
+  font-size: fonts.$h4-size !important;
+}
+
+input {
+  font-size: fonts.$input-size !important;
+}
+
+p {
+  font-size: fonts.$text-size;
+}
+
+sub {
+  font-size: fonts.$sub-size;
+  line-height: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+button {
+  font-family: fonts.$font-family !important;
+  border: none !important;
+  font-size: fonts.$font-btn !important;
+  padding: 0 !important;
+}
+

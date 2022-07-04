@@ -1,0 +1,21 @@
+@use '../variables/colors';
+
+.btn {
+    border-radius: 2em !important;
+    margin: 2em !important;
+}
+
+.btn--small {
+    font-size: 0.6em !important;
+    text-transform: none !important;
+}
+
+.google-login {
+    display: inline;
+}
+
+.btn--login {
+    background-color: colors.$primary-color;
+    border-radius: 1em;
+    margin: 1em;
+}

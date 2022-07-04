@@ -1,0 +1,13 @@
+@use "../variables/space";
+
+.products {
+    margin: 0 space.$page--margin-x;
+    padding-top: space.$page--padding-y;
+}
+
+.products__categories{
+    margin-bottom: space.$page--margin-y;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
