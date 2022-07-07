@@ -16,9 +16,10 @@ import { Link } from 'react-router-dom'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
 import Badge from '@mui/material/Badge'
+import { useTheme } from '@mui/material'
 
 import LoginModal from './LoginModal'
-import { useTheme } from '@mui/material'
+import LogOutBtn from './LogOutBtn'
 import ThemeContext from '../context/ThemeContext'
 import { useAppSelector } from '../hooks/storeHook'
 
@@ -26,9 +27,10 @@ const drawerWidth = 240
 const navItems = ['Home', 'Products', 'User', 'Contact', 'Cart']
 
 const NavLink = () => {
+    const currentUser = useAppSelector(state => state.userReducer.currentUser)
     const theme = useTheme()
     const colorMode = useContext(ThemeContext)
-    const cartQuantity = useAppSelector(state=>state.cartReducer.total)
+    const cartQuantity = useAppSelector(state => state.cartReducer.total)
     return (
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => {
@@ -46,7 +48,7 @@ const NavLink = () => {
                 }
 
             })}
-            <LoginModal />
+            {currentUser ? (<LogOutBtn />) : (<LoginModal />)}
             <IconButton sx={{ ml: 1 }} onClick={() => colorMode.toggleColorMode()} >
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>

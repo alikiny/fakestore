@@ -4,7 +4,7 @@
     display: inline !important;
 }
 
-.google-login {
+.login__form {
     display: block !important;
     background-color: colors.$bg-primary !important;
     position: absolute !important;
@@ -15,15 +15,21 @@
     border-radius: 2em;
     padding: 2em;
     color: colors.$light-text !important;
-    & > button {
+    & button {
         background-color: transparent !important;
         box-shadow: none !important;
         border: none;
         color: colors.$light-text !important;
-        & > div {
+        & div {
             background-color: transparent !important;
             padding-right: 0 !important;
             color: colors.$light-text !important;
         }
+    }
+}
+
+.form-account{
+    & >div{
+        margin: 0.2em 0;
     }
 }

@@ -4,10 +4,11 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { CustomPaginationProp } from '../types/props'
 
-const CustomPagination = ({ count, setPage }:CustomPaginationProp) => {
+const CustomPagination = ({ count, setPage, page }: CustomPaginationProp) => {
     return (
         <Pagination
             count={count}
+            page={page}
             color="primary"
             renderItem={(item) => (
                 <PaginationItem

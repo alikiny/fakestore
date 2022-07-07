@@ -75,7 +75,7 @@ const App = () => {
             color: 'text.primary',
             position: 'relative'
           }}>
-          <NavBar />
+            <NavBar />
             <Routes>
               <Route path='' element={<Home />} />
               <Route path='home' element={<Home />} />

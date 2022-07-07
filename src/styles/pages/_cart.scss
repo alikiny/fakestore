@@ -1,0 +1,35 @@
+@use "../variables/space";
+@use "../variables/extends";
+
+.cart {
+    @extend .page-config;
+    height: 100vh;
+}
+
+.cart__grid {
+    margin: 1em 0;
+}
+
+.cart__product {
+    & h6 {
+        font-size: 0.4em;
+    }
+    & p {
+        font-size: 0.4em;
+        margin: 0;
+    }
+}
+
+.cart__product__quantity {
+    display: flex;
+    & button {
+        padding: 0 !important;
+    }
+    & p {
+        margin: 0 0.5em;
+        font-size: 0.6em;
+    }
+    & svg {
+        font-size: 0.8em;
+    }
+}

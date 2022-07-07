@@ -1,14 +1,14 @@
-import { render } from '@testing-library/react'
+import { customRender } from "../utils/render"
 
 import Home from "../../pages/Home"
 
 describe('Test Home page', () => {
     test('Should match page snapshot', () => {
-        const component = render(<Home />)
+        const component = customRender(<Home />)
         expect(component).toMatchSnapshot()
     })
     test('Should have Homebanner and Collections', () => {
-        const { container } = render(<Home />)
+        const { container } = customRender(<Home />)
         const collection = container.getElementsByClassName('home__collection')
         const homebanner = container.getElementsByClassName('banner')
         expect(collection.length).toEqual(1)

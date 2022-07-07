@@ -5,10 +5,14 @@ import { useAppDispatch } from '../hooks/storeHook'
 import { ProductInCart } from '../types/cart'
 import { addToCart } from '../redux/reducer/cartReducer'
 
-const AddToCardBtn = ({product}:{product:ProductInCart}) => {
+const AddToCardBtn = ({product}:{product:ProductInCart|undefined}) => {
     const dispatch = useAppDispatch()
     const addProduct = () => {
-        dispatch(addToCart(product))
+        if (product) {
+            dispatch(addToCart(product))
+        } else {
+            alert('Product does not exist')
+        }
     }
     return (
         <IconButton

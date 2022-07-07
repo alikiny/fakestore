@@ -29,7 +29,7 @@ const ProductCard = ({ product }: ProductCardProp) => {
                 />
             </CardActionArea>
             <CardContent>
-                <Grid container alignItems={'center'} display={{ xs: 'none', md: 'flex' }}>
+                <Grid container alignItems={'flex-start'} display={{ xs: 'none', md: 'flex' }}>
                     <Grid item xs={9}>
                         <h6>
                             {product.title}
@@ -39,6 +39,9 @@ const ProductCard = ({ product }: ProductCardProp) => {
                         </sub>
                     </Grid>
                     <Grid item xs={3}>
+                        <h6>
+                            {product.price} EUR
+                        </h6>
                         <AddToCardBtn product={productToAdd} />
                     </Grid>
                 </Grid>

@@ -1,3 +1,5 @@
+@use "../variables/extends";
+
 .user-page{
-    margin: 0;
+     @extend .page-config;
 }

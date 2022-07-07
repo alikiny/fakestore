@@ -1,6 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 
-import { productReducer, addProduct, fetchProducts, deleteProduct, updateProduct } from "../../redux/reducer/productReducer";
+import { productReducer, addProduct, fetchProducts, updateProduct, deleteProductAsync } from "../../redux/reducer/productReducer";
 import { Product, UpdatePayloadAction } from "../../types/products";
 import products from "../fixtures/products";
 import createTestStore from "../utils/store";
@@ -12,13 +12,13 @@ const defaultAction: PayloadAction = {
     payload: undefined
 }
 const testProduct: Product = {
-    id: '100',
+    id: 100,
     title: 'test product',
     price: 100,
     description: 'test product',
     images: [],
     category: {
-        id: '200',
+        id: 200,
         name: 'test category',
         image: ''
     }
@@ -45,11 +45,20 @@ let store = createTestStore()
 beforeEach(() => {
     store = createTestStore()
     products.forEach(product => store.dispatch(addProduct(product)))
+    server.listen()
+})
+
+afterEach(() => {
+    server.resetHandlers()
+})
+
+afterAll(() => {
+    server.close()
 })
 
 describe('Test product reducer', () => {
     test('should return the initial state', () => {
-        expect(productReducer(undefined, defaultAction)).toEqual(initialState)
+        expect(productReducer(undefined, defaultAction).products).toEqual(initialState)
     })
     test('should fetch products from API and save to store', async () => {
         await store.dispatch(fetchProducts())
@@ -62,11 +71,9 @@ describe('Test product reducer', () => {
         const state = store.getState().productReducer
         expect(state.products.length).toEqual(4)
     })
-    test('should delete products from store', () => {
-        /*  const state = productReducer(products, deleteAction)
-         expect(state.length).toEqual(2) */
-        store.dispatch(deleteProduct(12))
-        expect(store.getState().productReducer.products.length).toEqual(2)
+    test('should delete available product from api', async () => {
+        await store.dispatch(deleteProductAsync('12'))
+        expect(store.getState().productReducer.products.length).toBe(2)
     })
     test('should update product', () => {
         /* const state = productReducer(products, updateAction)
@@ -74,7 +81,7 @@ describe('Test product reducer', () => {
         expect(newProduct).toBeDefined() */
         store.dispatch(updateProduct(updateAction.payload))
         const state = store.getState().productReducer
-        const updatedProduct = state.products.find(product => product.id === 112)
+        const updatedProduct = state.products.find(product => product.id === 12)
         expect(updatedProduct).toBeDefined()
     })
 })

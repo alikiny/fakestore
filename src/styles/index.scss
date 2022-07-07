@@ -9,6 +9,7 @@
 @use "./pages/userPage";
 @use "./pages/products";
 @use "./pages/single-product";
+@use "./pages/cart";
 
 @use "./variables/fonts";
 @use "./variables/space";
@@ -32,22 +33,18 @@ code {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: fonts.$font-heading;
 }
 
-h1,
-h2 {
-  margin: 3em;
-}
-
-h5 {
+h5, h6 {
   margin: 0;
 }
 
-h6 {
-  margin: 0;
-  line-height: 0;
+h6{
+  font-size: fonts.$h6-size;
 }
 
 h4 {
@@ -77,6 +74,5 @@ button {
   font-family: fonts.$font-family !important;
   border: none !important;
   font-size: fonts.$font-btn !important;
-  padding: 0 !important;
 }
 

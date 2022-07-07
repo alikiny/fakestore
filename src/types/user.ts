@@ -6,3 +6,8 @@ export interface User {
     imageUrl: string,
     email: string
 }
+
+export interface LoginUser {
+    email: string,
+    password: string
+}

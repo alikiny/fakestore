@@ -6,6 +6,7 @@ export interface ProductCardProp {
 
 export interface CustomPaginationProp {
     count: number,
+    page: number,
     setPage: (page: number) => void
 }
 

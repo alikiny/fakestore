@@ -24,6 +24,9 @@ const cartSlice = createSlice({
             state.total -= action.payload.quantity
         },
         updateProductAmount: (state, action: PayloadAction<ProductInCart>) => {
+            if (action.payload.quantity == 0) {
+                state.products = state.products.filter(product=>product.product.id!=action.payload.product.id)
+            }
             state.products = state.products.map(product => {
                 if (product.product.id === action.payload.product.id) {
                     state.total -= product.quantity

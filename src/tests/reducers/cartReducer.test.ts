@@ -1,6 +1,6 @@
 import createTestStore from "../utils/store";
 import {
-    cartReducer, addToCart,
+    addToCart,
     removeFromCart,
     updateProductAmount,
     emptyCart

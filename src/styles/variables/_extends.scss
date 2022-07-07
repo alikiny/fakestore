@@ -1,0 +1,6 @@
+@use "../variables/space";
+
+.page-config{
+    margin: 0 space.$page--margin-x;
+    padding-top: space.$page--padding-y;
+}

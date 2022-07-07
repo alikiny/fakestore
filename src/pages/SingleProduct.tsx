@@ -3,16 +3,23 @@ import { useParams } from 'react-router-dom'
 import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-
-import useProduct from '../hooks/useProduct'
 import ImageCarousel from '../components/product-component/ImageCarousel'
 import Box from '@mui/material/Box';
+
+import useProduct from '../hooks/useProduct'
+import AddToCardBtn from '../components/AddToCardBtn';
+import { ProductInCart } from '../types/cart';
 
 const SingleProduct = () => {
   const { productId } = useParams()
   const { product, isLoading } = useProduct(productId)
-  console.log(productId, product)
+  let productInCart: ProductInCart | undefined = undefined
+  if (product) {
+    productInCart = {
+      product,
+      quantity: 1
+    }
+  }
   return (
     <Box className='single-product'>
       {isLoading && <CircularProgress color="secondary" className='single-product' />}
@@ -29,7 +36,7 @@ const SingleProduct = () => {
               <p>{product.description}</p>
               <Grid>
                 <Button>Buy now</Button>
-                <IconButton><FavoriteIcon /></IconButton>
+                <IconButton><AddToCardBtn product={productInCart} /></IconButton>
               </Grid>
             </Box>
           </Grid>
